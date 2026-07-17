@@ -2,28 +2,49 @@
 
 ## Overview
 
-Before making any changes to the semantic model, I explored all the tables to understand the business and how the data was organized.
+Before making any changes to the semantic model, I spent some time exploring the existing data model.
 
-The objective of this phase was not to clean the model immediately, but to identify the main business entities, understand the purpose of each table, and determine which tables would eventually become dimensions or facts.
+Instead of immediately renaming tables or deleting columns, I wanted to understand how the business works, what data was available, and how the tables were connected. This helped me make informed decisions during the cleanup process.
 
 ---
 
-## Understanding the Existing Model
+## The Rule
 
-I reviewed each table in the model to understand what information it contained.
+> **Understand the data before you change anything.**
 
-Some tables represented business entities such as:
+The more time I spent exploring the model, the easier it became to identify issues and avoid mistakes during the refactoring process.
 
-- Addresses
+---
+
+## What I Wanted to Understand
+
+During this phase, I focused on answering a few important questions:
+
+- What is the business?
+- What are the main business entities?
+- Which tables are dimensions?
+- Which tables are facts?
+
+Having answers to these questions gave me a clear direction before starting the refactoring.
+
+---
+
+## Exploring the Existing Model
+
+I reviewed every table in the semantic model to understand its purpose.
+
+From the exploration, I found several descriptive tables that could become **dimension tables**, including:
+
 - Customers
 - Products
-- Regions
+- Addresses
 - Cities
+- Regions
 - Subcategories
 
-These tables mainly contained descriptive information, making them good candidates for **dimension tables**.
+These tables mainly contained descriptive attributes that provide business context.
 
-Other tables represented business events such as:
+I also identified several transactional tables that could become **fact tables**, such as:
 
 - Orders
 - Order Line Items
@@ -33,58 +54,60 @@ Other tables represented business events such as:
 - Shipments
 - Campaign Logs
 
-These tables contained transactional data with dates, quantities, amounts, and other measurable values, making them suitable candidates for **fact tables**.
+These tables contained business events with dates, quantities, and amounts, making them suitable for fact tables.
 
 ---
 
-## Issues Identified During Exploration
+## Issues I Identified
 
-While exploring the model, I found several issues that would need to be addressed during the refactoring process.
+While reviewing the model, I found several areas that required cleanup.
 
-Some examples included:
+Some of the issues included:
 
-- Duplicate shipment tables (`Shipments` and `Sheet1`)
-- Orders split across multiple yearly tables
-- A table (`Dimension Order`) containing only IDs with no useful business context
-- Inconsistent naming conventions across tables
-- Technical columns such as hash keys and source IDs
-- Repeated customer and location information in multiple tables
+- Duplicate tables containing the same data.
+- Orders stored in separate yearly tables.
+- Tables with unclear or meaningless names.
+- Technical columns that were not useful for reporting.
+- Repeated business information across multiple tables.
+- Inconsistent naming conventions.
 
-These observations helped me identify which tables could be cleaned, merged, renamed, or removed later.
+Identifying these problems early helped me plan the refactoring process.
 
 ---
 
 ## Preparing Power Query
 
-Before starting the refactoring, I organized the queries in Power Query into separate folders to make the project easier to manage.
+Before creating new tables, I organized the Power Query editor to keep the project structured.
 
-The folders I created were:
+I created the following folders:
 
 - **Stage** – Original source tables
-- **Dimensions** – Dimension tables created during the cleanup
-- **Facts** – Fact tables created during the cleanup
-- **Support** – Supporting tables such as security or helper tables
+- **Dimensions** – Clean dimension tables
+- **Facts** – Clean fact tables
+- **Support** – Helper and supporting tables
 
-Keeping the queries organized from the beginning makes it easier to track changes as the model grows.
+This made it much easier to manage the queries as the project progressed.
 
 ---
 
 ## Summary
 
-After exploring the model, I had a clear understanding of:
+After completing this phase, I had a much better understanding of the semantic model.
 
-- The business entities
-- The transactional tables
-- Potential dimension and fact tables
-- Existing data quality issues
-- Areas that required cleanup before building a proper star schema
+I was able to:
 
-This exploration gave me the confidence to begin refactoring the semantic model while following the modeling standards defined earlier.
+- Understand the business domain.
+- Identify the main business entities.
+- Separate potential dimensions from facts.
+- Spot data quality issues.
+- Organize the Power Query environment for the upcoming refactoring work.
+
+This preparation gave me a solid foundation before modifying the semantic model.
 
 ---
 
 ## What's Next
 
-The next step is to start cleaning and standardizing the dimension tables.
+Now that I understand the existing model, the next step is to clean and standardize the dimension tables.
 
 ➡️ Continue to [04_dimensions.md](04_dimensions.md)
