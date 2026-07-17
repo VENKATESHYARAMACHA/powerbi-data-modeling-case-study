@@ -16,7 +16,7 @@ Below is the semantic model before making any changes.
 
 
 ```text
-images/existing_model.png
+![Existing Semantic Model](../images/existing_model.png)
 ```
 
 ---
