@@ -2,110 +2,70 @@
 
 ## Overview
 
-This repository starts with an existing Power BI semantic model that has become difficult to maintain over time.
+Before beginning the refactoring process, I wanted to get a high-level understanding of the existing semantic model.
 
-As more tables and data sources were added, the model lost consistency. Different naming conventions were used, duplicate tables were introduced, and the relationships became harder to understand.
-
-The goal of this project is **not** to build reports or dashboards. The only objective is to clean and standardize the semantic model by following good data modeling practices.
+This document captures my initial assessment of the model based on its overall structure. At this stage, I focused on identifying visible design issues rather than analyzing the underlying data.
 
 ---
 
 ## Existing Model
 
-Below is the semantic model before making any changes.
+The image below shows the semantic model before any modifications.
 
 ![Existing Semantic Model](../images/existing_model.png)
 
 ---
 
-## What I Found
+## First Impression
 
-Before making any changes, I spent some time understanding the existing model and noted a few areas that needed improvement.
+At first glance, the semantic model appeared more complex than necessary.
 
-### No Clear Star Schema
-
-The model does not follow a proper star schema.
-
-Instead of having a central fact table with related dimensions, many tables are connected together in a way that makes the model difficult to understand and maintain.
+Even without exploring the individual tables, I could see several structural issues that would make the model harder to understand and maintain over time.
 
 ---
 
-### Different Naming Styles
+## Initial Observations
 
-There is no single naming convention across the model.
+### Inconsistent Naming
 
-Some examples:
+Different naming conventions were used across tables and columns, making the model less consistent and harder to navigate.
 
-| Current Name | Observation |
-|--------------|-------------|
-| `CUST_MASTER` | Uppercase |
-| `Address` | PascalCase |
-| `invoice_lines` | snake_case |
-| `ORDERS_2025` | Year included in table name |
+### Duplicate Data Structures
 
-Using one consistent naming standard makes the model much easier to read.
+Some business entities appeared to be represented by multiple tables instead of a single logical structure.
 
----
+### Technical Metadata
 
-### Duplicate Tables
-
-Some business entities are split across multiple tables.
-
-Example:
-
-- `ORDERS_2025`
-- `ORDERS_2026`
-
-Instead of maintaining separate tables, these can be combined into a single table representing the same business process.
-
----
-
-### Technical Columns
-
-Some tables expose technical columns that are mainly useful during data loading but not for reporting or analysis.
-
-Examples:
-
-- `hash_key`
-- `source_id`
-- `_load_date`
-
-These columns only add noise to the semantic model.
-
----
+Several tables contained technical or system-generated columns that did not appear to add value to the semantic model.
 
 ### Complex Relationships
 
-The current relationship diagram is difficult to follow.
+The relationship diagram contained many interconnected tables, making it difficult to understand the overall data model.
 
-Some relationships make the model more complicated than necessary and reduce overall readability.
+### Lack of Standardization
 
----
-
-### Tables That Need Review
-
-A few tables appear to be disconnected, staging-related, or no longer required in the semantic model.
-
-These will be reviewed during the cleanup process.
+There was no clear and consistent approach for organizing tables, naming objects, or separating dimensions from facts.
 
 ---
 
-## What This Project Will Do
+## Refactoring Goal
 
-During this project, I will:
+Based on these initial observations, my goal is to improve the semantic model by:
 
-- Apply consistent naming standards
-- Separate facts and dimensions
-- Simplify the relationship model
-- Remove unnecessary tables and columns
-- Make the semantic model easier to understand and maintain
+- Applying consistent naming conventions
+- Building a clear star schema
+- Removing unnecessary tables and columns
+- Simplifying relationships
+- Improving readability and maintainability
 
-The business logic will remain the same. The focus is only on improving the structure of the semantic model.
+The business logic and source data will remain unchanged throughout this project.
 
 ---
 
 ## What's Next
 
-The next step is to define the modeling standards that will be followed throughout the project.
+The next step is to define the modeling standards that will guide the refactoring process and ensure consistency across the semantic model.
+
+Once those standards are established, I will explore the existing data in detail to understand the business entities, identify potential dimension and fact tables, and plan the refactoring before making any structural changes.
 
 ➡️ Continue with [02_modeling_standards.md](02_modeling_standards.md)
