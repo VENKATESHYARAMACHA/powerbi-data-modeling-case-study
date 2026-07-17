@@ -14,10 +14,7 @@ The goal of this project is **not** to build reports or dashboards. The only obj
 
 Below is the semantic model before making any changes.
 
-
-```text
 ![Existing Semantic Model](../images/existing_model.png)
-```
 
 ---
 
