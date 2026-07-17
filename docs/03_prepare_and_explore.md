@@ -2,38 +2,40 @@
 
 ## Overview
 
-Before making any changes to the semantic model, I spent some time exploring the existing data model.
+With the current state of the semantic model understood and the modeling standards defined, the next step was to explore the existing data before making any structural changes.
 
-Instead of immediately renaming tables or deleting columns, I wanted to understand how the business works, what data was available, and how the tables were connected. This helped me make informed decisions during the cleanup process.
-
----
-
-## The Rule
-
-> **Understand the data before you change anything.**
-
-The more time I spent exploring the model, the easier it became to identify issues and avoid mistakes during the refactoring process.
+The objective of this phase was to understand the business, identify the main business entities, and determine how the existing tables could be organized into a clean star schema.
 
 ---
 
-## What I Wanted to Understand
+## Understanding the Business
 
-During this phase, I focused on answering a few important questions:
+Before building dimensions and facts, I wanted to answer a few important questions:
 
-- What is the business?
+- What business process does this data represent?
 - What are the main business entities?
-- Which tables are dimensions?
-- Which tables are facts?
+- Which tables describe those entities?
+- Which tables record business transactions?
 
-Having answers to these questions gave me a clear direction before starting the refactoring.
+Understanding the answers to these questions helped me make informed modeling decisions instead of making changes based on assumptions.
 
 ---
 
-## Exploring the Existing Model
+## Exploring the Data
 
-I reviewed every table in the semantic model to understand its purpose.
+I reviewed every table in Power Query to understand its purpose and how it contributed to the business process.
 
-From the exploration, I found several descriptive tables that could become **dimension tables**, including:
+During this exploration, I focused on identifying descriptive tables that could become dimensions and transactional tables that could become facts.
+
+![Power Query Overview](../images/power_query_overview.png)
+
+---
+
+## Identifying Dimension Tables
+
+From the exploration, I identified several descriptive tables that represent business entities.
+
+These included:
 
 - Customers
 - Products
@@ -42,9 +44,15 @@ From the exploration, I found several descriptive tables that could become **dim
 - Regions
 - Subcategories
 
-These tables mainly contained descriptive attributes that provide business context.
+These tables mainly contain descriptive attributes and will later be consolidated into clean dimension tables.
 
-I also identified several transactional tables that could become **fact tables**, such as:
+---
+
+## Identifying Fact Tables
+
+I also identified tables that capture business events and transactions.
+
+Examples include:
 
 - Orders
 - Order Line Items
@@ -54,60 +62,45 @@ I also identified several transactional tables that could become **fact tables**
 - Shipments
 - Campaign Logs
 
-These tables contained business events with dates, quantities, and amounts, making them suitable for fact tables.
+These tables contain measurable business activity and will become the fact tables in the refactored semantic model.
 
 ---
 
-## Issues I Identified
+## Planning the Refactoring
 
-While reviewing the model, I found several areas that required cleanup.
+After understanding the available data, I had a clear picture of how the semantic model should be organized.
 
-Some of the issues included:
+This planning phase helped me:
 
-- Duplicate tables containing the same data.
-- Orders stored in separate yearly tables.
-- Tables with unclear or meaningless names.
-- Technical columns that were not useful for reporting.
-- Repeated business information across multiple tables.
-- Inconsistent naming conventions.
+- Identify which tables belong together.
+- Decide which tables would become dimensions.
+- Identify the transactional tables that would become facts.
+- Plan the order of the refactoring work.
 
-Identifying these problems early helped me plan the refactoring process.
+Having this roadmap before making changes reduced the chances of unnecessary rework later in the project.
 
 ---
 
-## Preparing Power Query
+## Organizing the Workspace
 
-Before creating new tables, I organized the Power Query editor to keep the project structured.
+Before starting the transformations, I organized the Power Query environment to keep the project structured.
 
-I created the following folders:
+I grouped the queries into logical folders so that the original source tables, dimensions, facts, and supporting queries would be easier to manage throughout the refactoring process.
 
-- **Stage** – Original source tables
-- **Dimensions** – Clean dimension tables
-- **Facts** – Clean fact tables
-- **Support** – Helper and supporting tables
-
-This made it much easier to manage the queries as the project progressed.
+![Power Query Organization](../images/query_groups.png)
 
 ---
 
 ## Summary
 
-After completing this phase, I had a much better understanding of the semantic model.
+By the end of this phase, I had a solid understanding of the business domain, the available data, and the overall structure of the semantic model.
 
-I was able to:
-
-- Understand the business domain.
-- Identify the main business entities.
-- Separate potential dimensions from facts.
-- Spot data quality issues.
-- Organize the Power Query environment for the upcoming refactoring work.
-
-This preparation gave me a solid foundation before modifying the semantic model.
+More importantly, I had a clear plan for building the dimension and fact tables while following the modeling standards defined earlier.
 
 ---
 
 ## What's Next
 
-Now that I understand the existing model, the next step is to clean and standardize the dimension tables.
+With the business entities identified and the refactoring plan in place, the next step is to begin building the dimension tables, starting with the Customer Dimension.
 
 ➡️ Continue to [04_dimensions.md](04_dimensions.md)
