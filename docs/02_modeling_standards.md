@@ -122,4 +122,4 @@ The standards defined in this document will be followed throughout the project t
 
 The next step is to review the existing model and identify fact and dimension tables before starting the refactoring process.
 
-➡️ Continue with **03_prepare_and_explore.md**
+➡️ Continue with [03_prepare_and_explore.md](03_prepare_and_explore.md)
