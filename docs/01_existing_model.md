@@ -108,4 +108,4 @@ The business logic will remain the same. The focus is only on improving the stru
 
 The next step is to define the modeling standards that will be followed throughout the project.
 
-➡️ Continue with **02_modeling_standards.md**
+➡️ Continue with [02_modeling_standards.md](02_modeling_standards.md)
