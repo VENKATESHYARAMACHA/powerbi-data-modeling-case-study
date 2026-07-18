@@ -24,7 +24,7 @@ During this process, I:
 
 The completed Customer dimension is shown below.
 
-![Customer Dimension](../images/dim_customers_power_query.png)
+![Customer Dimension](../images/dim_customer_power_query.png)
 
 ---
 
