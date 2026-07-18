@@ -17,7 +17,15 @@ Before building the fact table, I reviewed the sales-related transaction tables 
 This helped me identify the columns that should remain as business measures and the descriptive attributes that should be replaced with dimension keys.
 
 ---
+## Choosing the Fact Table
 
+Before creating the fact table, I analysed the sales transaction tables to determine which one should become the primary fact table.
+
+The `orders_2025` and `orders_2026` tables contain order-level information, where each row represents a complete order. In contrast, the `order_line_items` table stores individual products within each order, along with the business measures such as quantity, price, cost, and line total.
+
+Since the business measures are recorded at the order line level, I chose the `order_line_items` table as the foundation for the `fact_sales` table. The orders tables were then used to provide additional order information during the transformation process.
+
+---
 ## Building the Sales Fact
 
 I created the `fact_sales` table by transforming the sales transaction data and integrating it with the dimension tables created during the previous phase.
@@ -25,7 +33,7 @@ I created the `fact_sales` table by transforming the sales transaction data and 
 During this process, I:
 
 - Appended the `orders_2025` and `orders_2026` tables to create a single orders table.
-- Merged the orders table into the fact table to retrieve the required order information.
+- Merged the orders table into the `fact_sales` table to retrieve the required order information.
 - Replaced customer attributes with the `customer_id`.
 - Replaced product attributes with the `product_key`.
 - Created the `dim_order_flag` dimension and added the `flag_key`.
