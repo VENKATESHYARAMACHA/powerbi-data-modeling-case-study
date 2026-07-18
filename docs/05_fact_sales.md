@@ -48,7 +48,7 @@ At this stage, the semantic model started taking the shape of a star schema, wit
 
 The updated semantic model is shown below.
 
-![Model After Fact Sales](../images/model_after_fact_sales.png)
+![Model After Fact Sales](../images/data_model_after_fact_sales.png)
 
 ---
 
