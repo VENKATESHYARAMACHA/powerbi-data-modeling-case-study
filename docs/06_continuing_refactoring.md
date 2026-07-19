@@ -41,7 +41,7 @@ The updated semantic model is shown below.
 
 ## Summary
 
-**The semantic model now includes an additional fact table for inventory data. By reusing the existing product dimension, the model remains consistent, reduces data duplication, and supports inventory analysis alongside sales data.**
+The semantic model now includes an additional fact table for inventory data. By reusing the existing product dimension, the model remains consistent, reduces data duplication, and supports inventory analysis alongside sales data.
 
 ---
 
