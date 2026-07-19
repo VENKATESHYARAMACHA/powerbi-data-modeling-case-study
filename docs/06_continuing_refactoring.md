@@ -41,7 +41,7 @@ The updated semantic model is shown below.
 
 ## Summary
 
-The semantic model now includes an additional fact table for inventory data. By reusing the existing product dimension, the model remains consistent and avoids unnecessary duplication.
+**The semantic model now includes an additional fact table for inventory data. By reusing the existing product dimension, the model remains consistent, reduces data duplication, and supports inventory analysis alongside sales data.**
 
 ---
 
@@ -122,4 +122,6 @@ The updated semantic model is shown below.
 
 ## Summary
 
-By the end of this phase, I had completed the campaign dimension, campaign fact table, and promotion coverage table. These additions expanded the semantic model while maintaining a clean and scalable star schema.
+By the end of this phase, I had completed the campaign dimension, campaign fact table, and promotion coverage table. These additions expanded the semantic model, enabled campaign and product analysis, and maintained a clean and scalable star schema.
+
+---
