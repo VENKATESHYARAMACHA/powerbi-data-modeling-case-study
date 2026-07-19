@@ -72,4 +72,4 @@ This reduced data redundancy, improved the overall structure of the semantic mod
 
 With the first fact table completed, the next step is to continue refactoring the remaining transaction tables, extract additional dimensions wherever required, and complete the semantic model.
 
-➡️ Continue to [06_remaining_dimensions.md](06_remaining_dimensions.md)
+➡️ Continue to [06_remaining_dimensions.md](06_continuing_refactoring.md)
