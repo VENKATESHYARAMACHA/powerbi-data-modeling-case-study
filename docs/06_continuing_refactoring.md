@@ -170,3 +170,45 @@ The updated semantic model is shown below.
 By the end of this phase, I had completed the `fact_order_process` table and integrated it with the existing customer dimension. This expanded the semantic model by capturing the key stages of the order lifecycle in a single fact table while maintaining a clean and scalable star schema.
 
 ---
+
+## Finalizing the Remaining Tables
+
+After completing the core fact and dimension tables, I reviewed the remaining tables in the model to determine whether they should be included, transformed, or removed.
+
+During this phase, I:
+
+- Removed the duplicate `sheet1` table because it contained the same data as the `shipments` table.
+- Disabled loading for the `exchange_rates` table since it was not required for the semantic model.
+- Created the `fact_sales_target` table to store the planned sales targets over time.
+- Renamed the columns in the `fact_sales_target` table to follow the project's modeling standards.
+- Disabled loading for the original `sales_target` source table after creating the fact table.
+- Removed the unnecessary `dim_orders` table because it did not provide additional business value.
+- Retained the `security` table for implementing row-level security in the final phase.
+
+The completed Power Query transformations are shown below.
+
+![Remaining Tables Power Query](../images/final_tables_power_query.png)
+
+---
+
+## Updating the Semantic Model
+
+After cleaning up the remaining tables, the semantic model contained only the required fact tables, dimension tables, and supporting objects needed for reporting.
+
+The updated semantic model is shown below.
+
+![Model Before Final Polish](../images/model_before_final_polish.png)
+
+---
+
+## Summary
+
+By the end of this phase, I had completed the remaining refactoring tasks, removed unnecessary tables, and added the final supporting fact table. The semantic model was now fully organized and ready for the final optimization and polishing phase.
+
+---
+
+## What's Next
+
+The next step is to finalize the semantic model by applying model optimizations, configuring security, and preparing the completed star schema.
+
+➡️ Continue to [07_final_model.md](07_final_model.md)
