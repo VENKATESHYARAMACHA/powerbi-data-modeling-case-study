@@ -125,3 +125,48 @@ The updated semantic model is shown below.
 By the end of this phase, I had completed the campaign dimension, campaign fact table, and promotion coverage table. These additions expanded the semantic model, enabled campaign and product analysis, and maintained a clean and scalable star schema.
 
 ---
+
+## Building the Order Process Fact
+
+The order process consists of multiple business events, including orders, shipments, invoices, and payments. Instead of creating separate fact tables for each stage, I consolidated the key process milestones into a single `fact_order_process` table.
+
+This approach provides a unified view of the order lifecycle and simplifies process analysis while keeping the semantic model clean and efficient.
+
+To prepare the `fact_order_process` table, I:
+
+- Removed the columns that were not required.
+- Merged the `dim_customers` table to retrieve the `customer_id`.
+- Expanded the `customer_id` column from the merged table.
+- Removed the original customer columns after replacing them with the `customer_id`.
+- Filtered the required records.
+- Merged the `shipments` table to retrieve the shipment and delivery dates.
+- Expanded the `shipment_date` and `delivery_date` columns from the merged table.
+- Merged the `invoices` table to retrieve the invoice details.
+- Expanded the required invoice columns from the merged table.
+- Merged the `payments` table to retrieve the `payment_date`.
+- Expanded the `payment_date` column from the merged table.
+- Removed the invoice-related columns after retrieving the required information.
+- Renamed the columns to follow the project's modeling standards and improve consistency.
+- Reordered the columns to improve readability and maintain a consistent column layout.
+
+The completed Power Query transformation is shown below.
+
+![Order Process Power Query](../images/fact_order_process_power_query.png)
+
+---
+
+## Updating the Semantic Model
+
+After creating the `fact_order_process` table, I connected it to the existing customer dimension using the `customer_id`.
+
+The updated semantic model is shown below.
+
+![Model After Order Process](../images/data_model_after_order_process.png)
+
+---
+
+## Summary
+
+By the end of this phase, I had completed the `fact_order_process` table and integrated it with the existing customer dimension. This expanded the semantic model by capturing the key stages of the order lifecycle in a single fact table while maintaining a clean and scalable star schema.
+
+---
