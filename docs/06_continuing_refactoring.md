@@ -161,7 +161,7 @@ After creating the `fact_order_process` table, I connected it to the existing cu
 
 The updated semantic model is shown below.
 
-![Model After Order Process](../images/data_model_after_order_process.png)
+![Model After Order Process](../images/model_after_order_process.png)
 
 ---
 
