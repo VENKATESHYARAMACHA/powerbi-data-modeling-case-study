@@ -57,7 +57,7 @@ Examples include:
 
 Providing these core measures helps ensure that reports reuse the same business logic throughout the semantic model.
 
-![Measures Table](../images/core_measures.png)
+![Measures Table](../images/measures_table.png)
 
 ---
 
@@ -69,7 +69,7 @@ The security table stores the relationship between users and business regions, a
 
 After validating the relationships, the model was ready for implementing dynamic security.
 
-![Security Model](../images/security_model.png)
+![Security Model](../images/row_level_security.png)
 
 ---
 
