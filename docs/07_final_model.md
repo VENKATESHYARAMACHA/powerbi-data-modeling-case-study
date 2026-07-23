@@ -10,7 +10,7 @@ During this phase, I standardized the model, created a shared date dimension, ad
 
 ## Reviewing the Modeling Standards
 
-Before finalizing the model, I reviewed every table and column to ensure they followed the project's modeling standards.
+Before finalizing the model, I reviewed every table and query to ensure they followed the project's modeling standards.
 
 During this review, I:
 
@@ -19,9 +19,9 @@ During this review, I:
 - Confirmed that all dimension and fact tables followed the required prefixes.
 - Standardized the display format for date, numeric, and currency columns.
 - Reviewed numeric columns and adjusted their default summarization where appropriate.
-- Confirmed that relationships, hierarchies, and table organization were consistent across the semantic model.
+- Organized the Power Query workspace into logical query groups for staging, dimensions, facts, and supporting tables.
 
-This final review ensured the semantic model remained clean, consistent, and easy to use.
+This final review ensured that the semantic model remained clean, consistent, and easy to maintain.
 
 ![Model Standards Review](../images/model_standards_review.png)
 
