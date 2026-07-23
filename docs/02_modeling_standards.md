@@ -101,14 +101,17 @@ During the cleanup, the following may be removed if they are not required:
 
 ---
 
-## Star Schema
+## Dimensional Modeling
 
-The final semantic model should follow a star schema wherever possible.
+The semantic model should follow dimensional modeling best practices.
 
-- Fact tables store business events.
-- Dimension tables provide descriptive information.
-- Facts connect to dimensions using keys.
-- Relationships should remain simple and easy to understand.
+- Business processes should be separated into individual fact tables.
+- Dimension tables should contain descriptive business information and be shared wherever possible.
+- Fact tables should connect to dimensions using keys.
+- Shared (conformed) dimensions should be reused across multiple fact tables.
+- Relationships should remain simple, consistent, and easy to understand.
+
+This approach enables the semantic model to evolve from individual star schemas into a scalable Galaxy Schema (Fact Constellation) as additional business processes are added.
 
 ---
 
