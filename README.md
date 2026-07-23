@@ -6,109 +6,156 @@
 ![Data Modeling](https://img.shields.io/badge/Data%20Modeling-Galaxy%20Schema-success)
 ![RLS](https://img.shields.io/badge/Security-Dynamic%20RLS-orange)
 
-> An end-to-end Power BI semantic model refactoring project demonstrating dimensional modeling, semantic model optimization, reusable DAX measures, and Dynamic Row-Level Security (RLS).
-
----
-
-# Final Semantic Model
-
-> Replace with your final semantic model screenshot.
-
-```markdown
-![Final Semantic Model](images/final_semantic_model.png)
-```
+> End-to-end Power BI Semantic Model Refactoring demonstrating dimensional modeling, semantic model optimization, reusable DAX measures, and Dynamic Row-Level Security.
 
 ---
 
 # Project Overview
 
-This project demonstrates the end-to-end refactoring of an existing Power BI semantic model into a clean, scalable, and enterprise-ready semantic model.
+This project documents my journey of transforming an existing Power BI semantic model into a clean, scalable and enterprise-ready semantic model.
 
-The original model contained duplicated tables, inconsistent naming conventions, unnecessary columns, and complex relationships. Instead of rebuilding the model from scratch, I analyzed the existing implementation and incrementally transformed it by applying dimensional modeling best practices.
+Instead of rebuilding the model from scratch, I first analyzed the existing implementation, understood the business processes, identified modeling issues, and then incrementally refactored the model using dimensional modeling best practices.
 
-The final solution follows a **Galaxy Schema (Fact Constellation)** with shared conformed dimensions supporting multiple business processes.
-
----
-
-# Project Requirements
-
-- Analyze the existing semantic model.
-- Identify business entities and business processes.
-- Apply dimensional modeling best practices.
-- Create reusable conformed dimensions.
-- Separate business processes into dedicated fact tables.
-- Build a shared Date dimension.
-- Create reusable DAX measures.
-- Implement Dynamic Row-Level Security.
-- Improve scalability and maintainability.
+The final solution follows a **Galaxy Schema (Fact Constellation)**.
 
 ---
 
-# Data Architecture
+# Business Problem
+
+The original semantic model had several design challenges:
+
+- Duplicate descriptive data
+- Inconsistent naming conventions
+- Unnecessary columns
+- Complex relationships
+- Mixed business processes
+- Difficult maintenance
+- Limited scalability
+
+These issues reduced readability, increased maintenance effort, and made future enhancements more difficult.
+
+---
+
+# Project Objectives
+
+- Understand the existing semantic model
+- Identify business entities and business processes
+- Design reusable conformed dimensions
+- Separate business processes into dedicated fact tables
+- Build a shared Date dimension
+- Create reusable DAX measures
+- Implement Dynamic Row-Level Security
+- Improve scalability and maintainability
+
+---
+
+# Solution Overview
+
+Rather than redesigning everything from scratch, I adopted an incremental refactoring approach.
+
+The project included:
+
+- Exploring the existing semantic model
+- Defining modeling standards
+- Creating reusable dimension tables
+- Designing dedicated fact tables
+- Simplifying relationships
+- Building a shared Date dimension
+- Centralizing DAX measures
+- Implementing Dynamic RLS
+- Validating the final semantic model
+
+---
+
+# Original Semantic Model
+
+> Add screenshot
+
+```markdown
+![Original Model](images/original_model.png)
+```
+
+Key issues identified:
+
+- Duplicate tables
+- Redundant attributes
+- Complex relationships
+- Inconsistent model design
+
+---
+
+# Refactoring Journey
 
 ```text
-Existing Semantic Model
-        │
-        ▼
+Existing Model
+      │
+      ▼
 Business Understanding
-        │
-        ▼
+      │
+      ▼
 Dimension Design
-        │
-        ▼
+      │
+      ▼
 Fact Table Design
-        │
-        ▼
+      │
+      ▼
 Relationship Optimization
-        │
-        ▼
+      │
+      ▼
 Shared Date Dimension
-        │
-        ▼
+      │
+      ▼
 Reusable DAX Measures
-        │
-        ▼
+      │
+      ▼
 Dynamic Row-Level Security
-        │
-        ▼
-Galaxy Schema (Fact Constellation)
+      │
+      ▼
+Final Galaxy Schema
 ```
 
 ---
 
-# Semantic Model Refactoring
+# Final Semantic Model
 
-## Original Challenges
+```markdown
+![Final Semantic Model](images/final_semantic_model.png)
+```
 
-- Duplicate tables
-- Inconsistent naming
-- Unnecessary columns
-- Complex relationships
-- Difficult maintenance
+Shared Dimensions
 
-## Improvements
+- dim_customer
+- dim_products
+- dim_geo
+- dim_campaign
+- dim_order_flag
+- dim_date
 
-- Created reusable dimensions
-- Separated business processes into fact tables
-- Optimized relationships
-- Added shared Date dimension
-- Centralized DAX measures
-- Implemented Dynamic RLS
+Fact Tables
+
+- fact_sales
+- fact_inventory
+- fact_campaign
+- fact_order_process
+- fact_sales_target
+- fact_promotion_coverage
 
 ---
 
 # Project Documentation
 
-| Phase | Description |
-|-------|-------------|
-| 01 | Existing Model Analysis |
-| 02 | Modeling Standards |
-| 03 | Prepare & Explore |
-| 04 | Build Dimensions |
-| 05 | Build Fact Tables |
-| 06 | Continue Refactoring |
-| 07 | Final Semantic Model |
-| 08 | Lessons Learned |
+| Phase | Documentation |
+|------|----------------|
+|01|Existing Model Analysis|
+|02|Modeling Standards|
+|03|Prepare and Explore|
+|04|Building Dimensions|
+|05|Building Fact Tables|
+|06|Continuing Refactoring|
+|07|Final Semantic Model|
+|08|Lessons Learned|
+
+Documentation files are available in the **docs/** folder.
 
 ---
 
@@ -119,19 +166,8 @@ powerbi-data-model-refactoring/
 │
 ├── README.md
 ├── docs/
-│   ├── 01_existing_model.md
-│   ├── 02_modeling_standards.md
-│   ├── 03_prepare_and_explore.md
-│   ├── 04_dimensions.md
-│   ├── 05_fact_sales.md
-│   ├── 06_continuing_refactoring.md
-│   ├── 07_final_model.md
-│   └── 08_lessons_learned.md
-│
 ├── images/
 └── pbix/
-    ├── Original Semantic Model.pbix
-    └── Power BI Semantic Model Refactoring.pbix
 ```
 
 ---
@@ -139,25 +175,28 @@ powerbi-data-model-refactoring/
 # Technologies Used
 
 | Category | Technology |
-|----------|------------|
-| BI Platform | Power BI Desktop |
-| Data Transformation | Power Query (M) |
-| Data Modeling | Star Schema, Galaxy Schema |
-| Language | DAX |
+|-----------|------------|
+| BI | Power BI Desktop |
+| ETL | Power Query (M) |
+| Modeling | Star Schema, Galaxy Schema |
+| Calculations | DAX |
 | Security | Dynamic Row-Level Security |
 | Version Control | Git & GitHub |
 
 ---
 
-# Project Highlights
+# Project Results
 
-- Galaxy Schema (Fact Constellation)
-- 6 Dimension Tables
-- 6 Fact Tables
-- Shared Date Dimension
+The refactored semantic model delivers:
+
+- Cleaner and more maintainable model
+- Reusable conformed dimensions
+- Dedicated fact tables
+- Shared Date dimension
+- Simplified relationships
 - Dynamic Row-Level Security
-- Reusable DAX Measures
-- Complete end-to-end documentation
+- Improved scalability
+- Better foundation for analytical reporting
 
 ---
 
@@ -165,23 +204,12 @@ powerbi-data-model-refactoring/
 
 - Incremental Refresh
 - Calculation Groups
+- Microsoft Fabric Migration
 - Deployment Pipelines
-- CI/CD for Power BI
-- Fabric Migration
-
----
-
-# About Me
-
-**Venkatesh Yaramacha**
-
-Passionate about Data Analytics, Power BI, Business Intelligence, and Azure Data Engineering.
-
-- GitHub: *(Add your profile link)*
-- LinkedIn: *(Add your profile link)*
+- Automated Testing
 
 ---
 
 # Acknowledgements
 
-The business scenario used in this project was inspired by a Power BI data modeling portfolio exercise created by **Baraa**. The semantic model implementation, refactoring decisions, documentation, and repository organization were completed independently by me as part of my learning journey and portfolio development.
+The business scenario used in this project was inspired by a Power BI data modeling portfolio exercise by **Baraa**. The implementation, refactoring decisions, documentation, and repository organization were completed independently by me as part of my learning journey.
