@@ -103,7 +103,7 @@ Before applying the security role, the dashboard displays data from all business
 
 Using **View As** with the `Regional_Access` role automatically filters the dashboard so that users can only view data for their assigned region.
 
-![After Applying RLS](../images/after_rls.png)
+![After Applying RLS](../images/after_rls_dashboard.png)
 
 ---
 
