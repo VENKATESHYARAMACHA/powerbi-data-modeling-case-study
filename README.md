@@ -37,7 +37,7 @@ These issues made the semantic model difficult to understand, maintain, and exte
 
 The image below shows the original semantic model before refactoring.
 
-![Original Semantic Model](images/original_model.png)
+![Original Semantic Model](images/existing_model.png)
 
 The goal of this project was to improve the semantic model while preserving the existing business logic.
 
