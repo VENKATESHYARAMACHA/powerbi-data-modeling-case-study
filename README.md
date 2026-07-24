@@ -29,7 +29,7 @@ The original semantic model had several design challenges:
 - Difficult maintenance
 - Limited scalability
 
-These issues made the semantic model difficult to understand, maintain, and extend.
+These issues made the semantic model difficult to understand, maintain, and extend. The complex relationships also increased the risk of incorrect calculations and inconsistent reporting, reducing the reliability of business insights.
 
 ---
 
@@ -37,7 +37,7 @@ These issues made the semantic model difficult to understand, maintain, and exte
 
 The image below shows the original semantic model before refactoring.
 
-![Original Semantic Model](images/original_semantic_model.png)
+![Original Semantic Model](images/original_model.png)
 
 The goal of this project was to improve the semantic model while preserving the existing business logic.
 
@@ -105,22 +105,14 @@ The semantic model was prepared by reviewing every query, organizing Power Query
 
 ## Phase 4 – Building Dimension Tables
 
-Reusable dimension tables were created to support multiple business processes.
+The refactoring started by creating the core dimension tables required for the semantic model. As additional business processes were analyzed in later phases, more reusable dimensions were extracted from the existing tables and incorporated into the model.
 
 ### What I did
 
-- Created reusable conformed dimension tables.
-- Consolidated descriptive business information.
-- Designed dimensions shared across multiple fact tables.
-
-**Dimensions**
-
-- dim_customer
-- dim_products
-- dim_geo
-- dim_campaign
-- dim_order_flag
-- dim_date
+- Created the initial Customer and Product dimensions.
+- Identified reusable descriptive attributes.
+- Designed conformed dimensions.
+- Added additional dimensions progressively during the refactoring process.
 
 📖 **Detailed documentation:**  
 ➡️ **[04 – Building Dimensions](docs/04_dimensions.md)**
@@ -129,22 +121,14 @@ Reusable dimension tables were created to support multiple business processes.
 
 ## Phase 5 – Building Fact Tables
 
-Business processes were separated into dedicated fact tables to improve scalability and simplify reporting.
+The refactoring began by creating the Sales fact table as the primary transactional table. As additional business processes were analyzed, the remaining fact tables were extracted and refined throughout the refactoring process.
 
 ### What I did
 
-- Identified individual business processes.
-- Created dedicated fact tables.
-- Established a consistent grain for reporting.
-
-**Fact Tables**
-
-- fact_sales
-- fact_inventory
-- fact_campaign
-- fact_order_process
-- fact_sales_target
-- fact_promotion_coverage
+- Built the initial Sales fact table.
+- Defined the transaction grain.
+- Established relationships with dimension tables.
+- Extracted additional fact tables during later refactoring phases.
 
 📖 **Detailed documentation:**  
 ➡️ **[05 – Building Fact Tables](docs/05_fact_sales.md)**
@@ -153,14 +137,15 @@ Business processes were separated into dedicated fact tables to improve scalabil
 
 ## Phase 6 – Continuing the Refactoring
 
-The semantic model was further refined by improving relationships, optimizing queries, and enhancing the overall model.
+After establishing the core dimension and fact tables, I continued refactoring the remaining parts of the semantic model. Additional dimensions and fact tables were extracted from the existing tables, relationships were refined, and the overall model was optimized for better scalability and maintainability.
 
 ### What I did
 
-- Refined relationships.
-- Optimized Power Query.
-- Improved semantic model structure.
-- Enhanced maintainability.
+- Extracted additional dimension tables from the remaining business processes.
+- Created the remaining fact tables as new business processes were identified.
+- Refined relationships between dimensions and facts.
+- Removed redundant columns and unnecessary relationships.
+- Optimized the semantic model structure for better readability and performance.
 
 📖 **Detailed documentation:**  
 ➡️ **[06 – Continuing Refactoring](docs/06_continuing_refactoring.md)**
@@ -185,43 +170,54 @@ The final stage focused on completing and validating the semantic model.
 
 ## Phase 8 – Lessons Learned
 
-The project concludes with lessons learned and best practices that will guide future semantic modeling projects.
+The final phase summarizes the key concepts, best practices, and insights gained throughout the semantic model refactoring journey.
 
-### Topics Covered
+### What I learned
 
-- Dimensional modeling
-- Fact and dimension design
-- Reusable semantic models
-- Scalability
-- Performance considerations
-- Project reflections
+- Semantic model refactoring
+- Dimensional modeling best practices
+- Fact and dimension table design
+- Star Schema and Galaxy Schema design
+- Relationship optimization
+- Power Query organization
+- Reusable DAX measures
+- Dynamic Row-Level Security (RLS)
+- Building scalable semantic models
+- Enterprise modeling best practices
 
 📖 **Detailed documentation:**  
 ➡️ **[08 – Lessons Learned](docs/08_lessons_learned.md)**
 
 ---
 
-# Final Semantic Model
+## Final Semantic Model
 
-The completed semantic model follows a **Galaxy Schema (Fact Constellation)**.
+The refactored semantic model follows a Galaxy Schema (Fact Constellation) with shared conformed dimensions and dedicated fact tables for each business process.
+
+### Shared Dimensions
+
+- dim_customer
+- dim_products
+- dim_geo
+- dim_campaign
+- dim_order_flag
+- dim_date
+
+### Fact Tables
+
+- fact_sales
+- fact_inventory
+- fact_campaign
+- fact_order_process
+- fact_sales_target
+- fact_promotion_coverage
+
+The final design provides a cleaner semantic model with simplified relationships, reusable dimensions, centralized business logic, and improved scalability for analytical reporting.
 
 ![Final Semantic Model](images/final_semantic_model.png)
 
 ---
 
-# What I Learned
-
-Through this project I gained practical experience in:
-
-- Semantic model refactoring
-- Dimensional modeling
-- Star Schema and Galaxy Schema design
-- Power Query organization
-- DAX best practices
-- Dynamic Row-Level Security
-- Designing scalable Power BI semantic models
-
----
 
 # Conclusion
 
@@ -231,4 +227,4 @@ This project demonstrates how an existing semantic model can be transformed into
 
 # Acknowledgements
 
-The business scenario used in this project was inspired by a Power BI data modeling portfolio exercise by **Baraa**. The implementation, refactoring decisions, documentation, and repository organization were completed independently as part of my learning journey.
+The business scenario used in this project was inspired by a Power BI data modeling project by **Baraa**. The implementation, refactoring decisions, documentation, and repository organization were completed independently as part of my learning journey.
