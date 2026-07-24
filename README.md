@@ -12,7 +12,7 @@
 
 This project demonstrates the complete process of refactoring an existing Power BI semantic model. Instead of rebuilding the model from scratch, I analyzed the existing implementation, identified design issues, and incrementally transformed the model using dimensional modeling best practices.
 
-The complete refactoring journey is documented step by step in the docs folder.
+The complete refactoring journey is documented in the **docs** folder, with each phase explained in detail.
 
 ---
 
@@ -213,7 +213,7 @@ The refactored semantic model follows a Galaxy Schema (Fact Constellation) with 
 - fact_sales_target
 - fact_promotion_coverage
 
-The final design provides a cleaner semantic model with simplified relationships, reusable dimensions, centralized business logic, and improved scalability for analytical reporting.
+The final semantic model provides a cleaner structure with simplified relationships, reusable dimensions, centralized business logic, and improved scalability for analytical reporting.
 
 ---
 
